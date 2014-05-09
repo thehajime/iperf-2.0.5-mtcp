@@ -62,6 +62,10 @@
 #include "headers.h"
 #include "Thread.h"
 
+#include <pthread.h>
+#include <sys/socket.h>
+#include <mtcp_api.h>
+
 /* -------------------------------------------------------------------
  * constants
  * ------------------------------------------------------------------- */
@@ -174,6 +178,7 @@ typedef struct thread_Settings {
 #if defined( HAVE_WIN32_THREAD )
     HANDLE mHandle;
 #endif
+  mctx_t mctx;
 } thread_Settings;
 
 /*

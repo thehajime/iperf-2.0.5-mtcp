@@ -451,7 +451,7 @@ void Listener::Accept( thread_Settings *server ) {
     
         while ( server->mSock == INVALID_SOCKET ) {
             // accept a connection
-            server->mSock = accept( mSettings->mSock, 
+            server->mSock = mtcp_accept( mSettings->mctx, mSettings->mSock, 
                                     (sockaddr*) &server->peer, &server->size_peer );
             if ( server->mSock == INVALID_SOCKET &&  errno == EINTR ) {
                 continue;
